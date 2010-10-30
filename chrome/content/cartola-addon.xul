@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://cartolaextension/skin/cartola-addon.css" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/overlay.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/cartola-addon.dtd">
 <overlay id="cartolaextension-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="overlay.js"/>
   <script src="ff-overlay.js"/>
