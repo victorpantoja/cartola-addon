@@ -1,0 +1,7 @@
+content   cartolaextension                 chrome/content/
+skin      cartolaextension   classic/1.0   chrome/skin/
+locale    cartolaextension   en-US         chrome/locale/en-US/
+
+
+overlay   chrome://browser/content/browser.xul   chrome://cartolaextension/content/ff-overlay.xul
+style chrome://global/content/customizeToolbar.xul chrome://cartolaextension/skin/overlay.css
