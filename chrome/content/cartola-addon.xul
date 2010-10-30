@@ -2,11 +2,10 @@
 <?xml-stylesheet href="chrome://cartolaextension/skin/cartola-addon.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/cartola-addon.dtd">
 <overlay id="cartolaextension-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
-  <script src="overlay.js"/>
-  <script src="ff-overlay.js"/>
+  <script src="cartola-addon.js"/>
 
   <stringbundleset id="stringbundleset">
-    <stringbundle id="cartolaextension-strings" src="chrome://cartolaextension/locale/overlay.properties"/>
+    <stringbundle id="cartolaextension-strings" src="chrome://cartolaextension/locale/cartola-addon.properties"/>
   </stringbundleset>
 
   
