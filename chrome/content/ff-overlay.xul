@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet href="chrome://cartolaextension/skin/overlay.css" type="text/css"?>
+<?xml-stylesheet href="chrome://cartolaextension/skin/cartola-addon.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/overlay.dtd">
 <overlay id="cartolaextension-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="overlay.js"/>
@@ -9,51 +9,21 @@
     <stringbundle id="cartolaextension-strings" src="chrome://cartolaextension/locale/overlay.properties"/>
   </stringbundleset>
 
-  <menupopup id="menu_ToolsPopup">
-    <menuitem id="cartolaextension-hello" label="&cartolaextension.label;"
-              oncommand="cartolaextension.onMenuItemCommand(event);"/>
-  </menupopup>
-
-  <popup id="contentAreaContextMenu">
-    <menuitem id="context-cartolaextension" label="&cartolaextensionContext.label;"
-              accesskey="&cartolaextensionContext.accesskey;"
-              insertafter="context-stop"
-              oncommand="cartolaextension.onMenuItemCommand(event)"/>
-  </popup>
-
-  <toolbarpalette id="BrowserToolbarPalette">
-  <toolbarbutton id="cartolaextension-toolbar-button" class="toolbarbutton-1 chromeclass-toolbar-additional"
-    label="&cartolaextensionToolbarButton.label;" tooltiptext="&cartolaextensionToolbarButton.tooltip;"
-    oncommand="cartolaextension.onToolbarButtonCommand()"/>
-  </toolbarpalette>
-
-  <toolbox id="navigator-toolbox">
-    <toolbar class="chromeclass-toolbar" toolbarname="&cartolaextensionToolbar.name;" customizable="true" id="cartolaextension-toolbar">
-      <label value="&cartolaextensionToolbar.label;"/>
-    </toolbar>
+  
+   <toolbox id="navigator-toolbox">
+    <tooltip id="twitternotifier-tooltip" orient="vertical">
+      <description id="twitternotifier-status-tooltip" value="Cartola FC"/>
+      <description id="twitternotifier-last-update" value="" style="margin-top: -2px;margin-left: 2px;"/>
+    </tooltip>
   </toolbox>
-
-  <menupopup id="viewSidebarMenu">
-    <menuitem key="key_openSidebar_cartolaextension" observes="viewSidebar_cartolaextension" />
-  </menupopup>
-
-  <keyset id="mainKeyset">
-    <key id="key_openSidebar_cartolaextension" command="viewSidebar_cartolaextension" />
-  </keyset>
-
-  <broadcasterset id="mainBroadcasterSet">
-    <broadcaster id="viewSidebar_cartolaextension"
-                 label="&cartolaextensionSidebar.label;"
-                 autoCheck="false"
-                 type="checkbox"
-                 group="sidebar"
-                 sidebarurl="chrome://cartolaextension/content/ff-sidebar.xul"
-                 sidebartitle="&cartolaextensionSidebar.label;"
-                 oncommand="toggleSidebar('viewSidebar_cartolaextension');" />
-  </broadcasterset>
   
 	<statusbar id="status-bar">
-		<statusbarpanel id="my-panel" label="Hello, World"/>
+		<statusbarpanel id="cartola-notifier-statusbar-button"
+		label="Cartola FC" 
+		icon="chrome://cartolaextension/skin/icon_cartola.gif"
+		onclick="window.alert('oi')"
+		tooltip="twitternotifier-tooltip">
+		</statusbarpanel>
 	</statusbar>
 
 </overlay>
