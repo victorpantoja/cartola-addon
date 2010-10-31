@@ -10,9 +10,12 @@
 
   
    <toolbox id="navigator-toolbox">
-    <tooltip id="twitternotifier-tooltip" orient="vertical">
-      <description id="twitternotifier-status-tooltip" value="Cartola FC"/>
-      <description id="twitternotifier-last-update" value="" style="margin-top: -2px;margin-left: 2px;"/>
+    <tooltip id="cartolanotifier-tooltip" orient="vertical">
+      <description id="cartolanotifier-tooltip-desciption" value="Cartola FC"/>
+      <description id="cartolanotifier-tooltip-rodada" value=""/>
+      <description id="cartolanotifier-tooltip-status" value=""/>
+      <description id="cartolanotifier-tooltip-abertura" value=""/>
+      <description id="cartolanotifier-last-update" value="" style="margin-top: -2px;margin-left: 2px;"/>
     </tooltip>
   </toolbox>
   
@@ -21,7 +24,7 @@
 		label="Cartola FC" 
 		icon="chrome://cartolaextension/skin/icon_cartola.gif"
 		onclick="window.alert('oi')"
-		tooltip="twitternotifier-tooltip">
+		tooltip="cartolanotifier-tooltip">
 		</statusbarpanel>
 	</statusbar>
 

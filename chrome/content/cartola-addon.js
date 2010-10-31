@@ -18,14 +18,12 @@ CartolaNotifier.prototype = {
 		},
 		
 		onSuccess: function(req){
-			//alert('Status: '+req.status+', Response: '+ req.responseText);
-			//return false;
+
 			var JSON = this.Cc["@mozilla.org/dom/json;1"].createInstance(this.Ci.nsIJSON);
 			var data = JSON.decode(req.responseText);
 			
-			this.updateTooltip();
-			//$("twitternotifier-last-update").innerHTML('teste');
-			//alert(data['mercado']['status']);
+			this.updateTooltipAtualizacao();
+			this.updateTooltipMercado(data);
 		},
 		
 		onError: function(){
@@ -33,14 +31,36 @@ CartolaNotifier.prototype = {
 			alert('API Indisponível!');
 		},
 		
-		updateTooltip: function() {
-			var elem = this.$("twitternotifier-last-update");
+		updateTooltipAtualizacao: function() {
+			var elem = this.$("cartolanotifier-last-update");
 			var d = new Date();
 			var h = d.getHours();
 			if (h < 10) h = '0' + h;
 			var m = d.getMinutes();
 			if (m < 10) m = '0' + m;
 			elem.value = "Útima Atualização: " + h + ":" + m
+		},
+		
+		updateTooltipMercado: function(data) {
+			var status = data['mercado']['status'];
+			var rodada = data['mercado']['rodada'];
+
+            var statuses = ['','Aberto','Fechado','Em Atualização','Em Manutenção','Liberado para Testes','Game Over'];
+			
+			var tooltipStatus = this.$("cartolanotifier-tooltip-status");
+            tooltipStatus.value = "Mercado " + statuses[status];
+
+			var tooltipRodada = this.$("cartolanotifier-tooltip-rodada");
+			tooltipRodada.value = "Rodada: "+rodada;
+
+			var tooltipAbertura = this.$("cartolanotifier-tooltip-abertura");
+
+			if(status=='1'){
+				tooltipAbertura.value = "Mercado Fechará em: "+data['mercado']['fechamento']['hora'];
+			}
+			else{
+				tooltipAbertura.value = "Mercado Abrirá em Breve. Aguarde!";
+			}
 		},
 		
 		Cc: this.Components.classes,
