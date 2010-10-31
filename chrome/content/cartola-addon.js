@@ -56,11 +56,24 @@ CartolaNotifier.prototype = {
 			var tooltipAbertura = this.$("cartolanotifier-tooltip-abertura");
 
 			if(status=='1'){
-				tooltipAbertura.value = "Mercado Fechará em: "+data['mercado']['fechamento']['hora'];
+				tooltipAbertura.value = "Mercado Fechará em: "+this.getDataFechamento(data['mercado']['fechamento']);
 			}
 			else{
 				tooltipAbertura.value = "Mercado Abrirá em Breve. Aguarde!";
 			}
+		},
+		
+		getDataFechamento:function(date) {
+			var day = date['dia'];
+			if (day < 10) day = '0'+day;
+			
+			var month = date['mes'];
+			if (month < 10) month = '0'+month;
+
+			var hour = date['hora'];
+			var minute = date['minuto'];
+			
+			return day+"/"+month+" às "+hour+"h"+minute+"m";
 		},
 		
 		Cc: this.Components.classes,
