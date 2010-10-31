@@ -1,3 +1,7 @@
 #cartola-notifier-statusbar-button {
   list-style-image: url("chrome://cartolaextension/skin/icon_cartola.gif");
+  display: -moz-box;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 2px;
 }

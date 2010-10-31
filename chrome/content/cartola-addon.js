@@ -56,7 +56,7 @@ CartolaNotifier.prototype = {
 			var tooltipAbertura = this.$("cartolanotifier-tooltip-abertura");
 
 			if(status=='1'){
-				tooltipAbertura.value = "Mercado Fechará em: "+this.getDataFechamento(data['mercado']['fechamento']);
+				tooltipAbertura.value = "Mercado Fecha em: "+this.getDataFechamento(data['mercado']['fechamento']);
 			}
 			else{
 				tooltipAbertura.value = "Mercado Abrirá em Breve. Aguarde!";

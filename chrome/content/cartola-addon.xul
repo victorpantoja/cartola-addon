@@ -22,9 +22,9 @@
 	<statusbar id="status-bar">
 		<statusbarpanel id="cartola-notifier-statusbar-button"
 		label="Cartola FC" 
-		icon="chrome://cartolaextension/skin/icon_cartola.gif"
 		onclick="window.alert('oi')"
 		tooltip="cartolanotifier-tooltip">
+		<image id="icon_cartola" />
 		</statusbarpanel>
 	</statusbar>
 
