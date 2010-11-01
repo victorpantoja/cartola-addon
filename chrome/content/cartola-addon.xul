@@ -21,8 +21,9 @@
   
 	<statusbar id="status-bar">
 		<statusbarpanel id="cartola-notifier-statusbar-button"
-		label="Cartola FC" 
-		onclick="window.alert('oi')"
+		label="Cartola FC"
+		ondblclick="cartolaNotifier.openURL('http://cartolafc.globo.com')"
+		onclick=""
 		tooltip="cartolanotifier-tooltip">
 		<image id="icon_cartola" />
 		</statusbarpanel>
