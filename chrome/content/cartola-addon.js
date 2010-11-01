@@ -5,6 +5,16 @@ function CartolaNotifier() {
 
 CartolaNotifier.prototype = {
 		load: function() {
+			var self = this;
+			
+			self.updateMercado();
+			
+			setInterval(function(){
+				self.updateMercado();
+			}, 60*1000);	
+		},
+		
+		updateMercado:function(){
 			const URL_API_MERCADO_STATUS = "http://api.cartola.globo.com/mercado/status.json"
     		var req = new XMLHttpRequest;
 			req.open('POST', URL_API_MERCADO_STATUS, true);
@@ -14,7 +24,6 @@ CartolaNotifier.prototype = {
 			req.onload  = function() {self.onSuccess(req)};
 		    req.onerror = function() {self.onError()};
 		    req.send(null);
-
 		},
 		
 		onSuccess: function(req){
@@ -76,13 +85,36 @@ CartolaNotifier.prototype = {
 			return day+"/"+month+" às "+hour+"h"+minute+"m";
 		},
 		
+	  openURL: function(url) {
+	    var tabbrowser = gBrowser;
+	    var tabs = tabbrowser.tabContainer.childNodes;
+	    for (var i = 0; i < tabs.length; ++i) {
+	      var tab = tabs[i];
+	      try {
+	        var browser = tabbrowser.getBrowserForTab(tab);
+	        if (browser) {
+	          var doc = browser.contentDocument;
+	          var loc = doc.location.toString();
+	          if (loc == url) {
+	            gBrowser.selectedTab = tab;
+	            return;
+	          }
+	        }
+	      }
+	      catch (e) {
+	      }
+	    }
+		    
+	    // There is no tab. open new tab...
+	    var tab = gBrowser.loadOneTab(url);
+	  },
+		
 		Cc: this.Components.classes,
 		Ci: this.Components.interfaces,
 		
 		$: function(name) {
 			return document.getElementById(name);
 		}
-
 };
 
 
