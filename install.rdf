@@ -6,8 +6,8 @@
     <em:name>cartola-addon</em:name>
     <em:version>0.3</em:version>
     <em:creator>Victor Pantoja</em:creator>
-    <em:developer>Claudio Braga</em:developer>
     <em:description>Plugin do Cartola FC</em:description>
+    <em:developer>Claudio Braga Leite</em:developer>
     <em:homepageURL>http://www.cartolafc.com.br</em:homepageURL>
     <em:optionsURL>chrome://cartolaextension/content/preferences.xul</em:optionsURL>
     <em:iconURL>chrome://cartolaextension/skin/icon_cartola.gif</em:iconURL>
