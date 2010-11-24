@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://cartolaextension/locale/preferences.dtd">
+
+<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	id="cartolanotifier-login"
+	title="&cartolanotifier.title;">
+	
+	<script type="application/x-javascript" src="chrome://cartolaextension/content/preferences.js"/>	
+	
+	<prefpane id="all" style="margin-bottom: 24px">
+		<notificationbox id="notification" flex="1" style="margin:0px; padding:0px;"/>
+		<groupbox flex="1">
+			<caption label="&cartolanotifier.accounts;"/>
+			<hbox flex="1" align="center">
+				<vbox>
+					<listbox id="accounts" rows="6" onselect="CartolaPreference.onSelectAccount()"/>
+				</vbox>
+				<vbox flex="1">
+					<button id="add-account-button" label="&cartolanotifier.addAccount;" oncommand="CartolaPreference.onAddAccount()"/>
+					<button id="edit-account-button" label="&cartolanotifier.editAccount;" oncommand="CartolaPreference.onEditAccount()"/>
+					<button id="remove-account-button" label="&cartolanotifier.removeAccount;" oncommand="CartolaPreference.onRemoveAccount()"/>
+				</vbox>
+			</hbox>
+		</groupbox>
+		<groupbox>
+			<caption label="&cartolanotifier.preferences;"/>
+			<grid>
+				<columns>
+				<column />
+				<column flex="1"/>
+				</columns>
+				<rows>
+					<!-- refresh interval -->
+					<row style="margin-top: 15px">
+						<hbox align="center">
+							<label control="refresh-interval" value="&cartolanotifier.refreshInterval;" />
+						</hbox>
+						<menulist id="refresh-interval" preference="_refresh-interval">
+							<menupopup>
+								<menuitem label="&cartolanotifier.everyminute;" value="1" />
+								<menuitem label="&cartolanotifier.every2minutes;" value="2" />
+								<menuitem label="&cartolanotifier.every3minutes;" value="3" />
+								<menuitem label="&cartolanotifier.every5minutes;" value="5"/>
+							</menupopup>
+						</menulist>
+					</row>
+					<!-- show countdown -->
+					<row style="margin-top:15px">
+						<hbox align="center">
+							<label control="show-countdown" value="&cartolanotifier.countdown;"/>
+						</hbox>
+						<checkbox id="countdown" preference="_show-countdown" label="&cartolanotifier.countdownexplain;" />
+					</row>
+				</rows>
+			</grid>
+		</groupbox>
+	</prefpane>
+</prefwindow>

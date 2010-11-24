@@ -5,7 +5,7 @@
   <script src="cartola-addon.js"/>
 
   <stringbundleset id="stringbundleset">
-    <stringbundle id="cartolaextension-strings" src="chrome://cartolaextension/locale/cartola-addon.properties"/>
+    <stringbundle id="cartolaextension-strings" src="chrome://cartolaextension/locale/cartola.properties"/>
   </stringbundleset>
 
   
@@ -22,11 +22,16 @@
 	<statusbar id="status-bar">
 		<statusbarpanel id="cartola-notifier-statusbar-button"
 		label="Cartola FC"
+		context="twitternotifier-main-menupopup"
 		ondblclick="cartolaNotifier.openURL('http://cartolafc.globo.com')"
-		onclick=""
+		onclick="return cartolaNotifier.onClickStatusbarIcon(event)"
 		tooltip="cartolanotifier-tooltip">
 		<image id="icon_cartola" />
 		</statusbarpanel>
 	</statusbar>
+	
+    <hbox id="twitternotifier-popup-container">
+      <panel id="twitternotifier-main-window" noautofocus="true" noautohide="true"/>
+    </hbox>
 
 </overlay>

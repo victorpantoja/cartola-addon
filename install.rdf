@@ -12,7 +12,7 @@
     <em:description>Plugin do Cartola FC 2010</em:description>
     <em:homepageURL>http://www.cartolafc.com.br</em:homepageURL>
     <em:aboutURL>chrome://cartolaextension/content/about.xul</em:aboutURL>
-    <em:optionsURL>chrome://cartolaextension/content/options.xul</em:optionsURL>
+    <em:optionsURL>chrome://cartolaextension/content/preferences.xul</em:optionsURL>
     <em:iconURL>chrome://cartolaextension/skin/icon_cartola.gif</em:iconURL>
     
     <em:targetApplication>

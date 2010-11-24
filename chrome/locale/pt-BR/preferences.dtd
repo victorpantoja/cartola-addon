@@ -1,0 +1,13 @@
+<!ENTITY cartolanotifier.title "Preferências">
+<!ENTITY cartolanotifier.accounts "Contas (não afeta seu time no jogo)">
+<!ENTITY cartolanotifier.addAccount "Adicionar conta...">
+<!ENTITY cartolanotifier.countdown "Contagem Regressiva">
+<!ENTITY cartolanotifier.countdownexplain "Exibe o cronômetro para fechamento de mercado">
+<!ENTITY cartolanotifier.editAccount "Editar conta...">
+<!ENTITY cartolanotifier.preferences "Preferências">
+<!ENTITY cartolanotifier.everyminute "Selecione">
+<!ENTITY cartolanotifier.every2minutes "Cada 2 minutes">
+<!ENTITY cartolanotifier.every3minutes "Cada 3 minutes">
+<!ENTITY cartolanotifier.every5minutes "Cada 5 minutes">
+<!ENTITY cartolanotifier.refreshInterval "Atualizar">
+<!ENTITY cartolanotifier.removeAccount "Remover conta...">

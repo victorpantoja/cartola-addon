@@ -1,6 +1,6 @@
 content   cartolaextension                 chrome/content/
 skin      cartolaextension   classic/1.0   chrome/skin/
-locale    cartolaextension   en-US         chrome/locale/en-US/
+locale    cartolaextension   pt-BR         chrome/locale/pt-BR/
 
 
 overlay   chrome://browser/content/browser.xul   chrome://cartolaextension/content/cartola-addon.xul
