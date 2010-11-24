@@ -8,8 +8,9 @@
 	id="cartolanotifier-login"
 	title="&cartolanotifier.title;">
 	
+	<script type="application/x-javascript" src="chrome://cartolaextension/content/utils.js"/>	
 	<script type="application/x-javascript" src="chrome://cartolaextension/content/preferences.js"/>	
-	
+
 	<prefpane id="all" style="margin-bottom: 24px">
 		<notificationbox id="notification" flex="1" style="margin:0px; padding:0px;"/>
 		<groupbox flex="1">
