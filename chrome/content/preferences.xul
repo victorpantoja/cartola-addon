@@ -13,7 +13,13 @@
 	<script type="application/x-javascript" src="chrome://cartolaextension/content/preferences.js"/>	
 
 	<prefpane id="all" style="margin-bottom: 24px">
+	    <preferences>
+	      <preference id="_refresh-interval" name="extensions.cartolanotifier.interval"   type="int"/>
+	      <preference id="_show-countdown"   name="extensions.cartolanotifier.countdown"  type="bool"/>
+	    </preferences>
+	    
 		<notificationbox id="notification" flex="1" style="margin:0px; padding:0px;"/>
+		
 		<groupbox flex="1">
 			<caption label="&cartolanotifier.accounts;"/>
 			<hbox flex="1" align="center">
