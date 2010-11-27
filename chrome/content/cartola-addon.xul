@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="chrome://cartolaextension/skin/cartola-addon.css" type="text/css"?>
-<!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/cartola-addon.dtd">
+<!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/cartola.dtd">
 <overlay id="cartolaextension-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
   <script src="cartola-addon.js"/>
 
@@ -32,6 +32,25 @@
 	
     <hbox id="twitternotifier-popup-container">
       <panel id="twitternotifier-main-window" noautofocus="true" noautohide="true"/>
+      <panel id="twitternotifier-popup" noautofocus="true" noautohide="true"/>
     </hbox>
+    
+    <popupset id="twitternotifier-popupset">
+		<menu id="twitternotifier-menuitem-account" label="&cartolanotifier.accounts;">
+			<menupopup id="twitternotifier-accounts" sortDirection="ascending" onpopupshowing="cartolaNotifier.onAccountMenuShowing(this)"/>
+		</menu>
+		<menuseparator/>
+    </popupset>
+    
+    <!--<popupset id="twitternotifier-popupset">
+      <menupopup id="twitternotifier-main-menupopup">
+	<menu id="twitternotifier-menuitem-account" label="&cartolanotifier.accounts;">
+	  <menupopup id="twitternotifier-accounts" sortDirection="ascending" onpopupshowing="gTwitterNotifier.onAccountMenuShowing(this)"/>
+	</menu>
+	<menuseparator/>
+	<menuitem id="twitternotifier-menuitem-preference" label="&cartolanotifier.preference;" oncommand="gTwitterNotifier.onPreference(event)" />
+	<menuitem id="twitternotifier-menuitem-logout" label="&cartolanotifier.logout;" oncommand="gTwitterNotifier.onLogout(this)" />
+      </menupopup>
+    </popupset>-->
 
 </overlay>

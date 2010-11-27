@@ -6,6 +6,7 @@
 <prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
 	xmlns:html="http://www.w3.org/1999/xhtml"
 	id="cartolanotifier-login"
+    onload="return CartolaPreference.onLoad();"
 	title="&cartolanotifier.title;">
 	
 	<script type="application/x-javascript" src="chrome://cartolaextension/content/utils.js"/>	

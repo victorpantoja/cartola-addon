@@ -9,9 +9,9 @@ const CartolaPreference = {
   },
 
   onAddAccount: function() {
-		var msg = 'Slug'
+		var msg = 'Slug do seu time';
 	    var user = {value: ""};
-	    if (!this.promptPasswordDialog(user, msg)) return;
+	    if (!this.promptUserDialog(user, msg)) return;
 	    
 	    var list = this.util.$("accounts");
 	    for (var i = 0; i < list.itemCount; ++i) {
@@ -26,12 +26,41 @@ const CartolaPreference = {
 	    list.selectItem(item);
 	    
 	    this.util.pref().setCharPref("currentUser", user.value);
-	    //this.updateButtonState();
+	    this.updateButtonState();
 	    this.showMessage('Usuário adicionado: '+user.value);
 	    this.accountChanged = true;
   },
   
-  promptPasswordDialog: function(user, msg) {
+  onEditAccount: function() {
+
+	    var list = this.util.$("accounts");
+	    var username = this.util.pref().getCharPref("currentUser");
+	    var msg = "Editar conta: " + username;
+
+	    var user = {value: username};
+
+	    if (!this.promptUserDialog(user, msg)) return;
+
+	    this.util.pref().setCharPref("currentUser", user.value);
+	    this.showMessage('Usuário alterado: '+user.value);
+		this.buildUserList();
+	  },
+	  
+  onRemoveAccount: function() {
+	    var prompt = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
+	    var list = this.util.$("accounts");
+	    var user = this.util.pref().getCharPref("currentUser");
+	    var msg = "Excluir o usuário "+user+"?";
+	    var result = prompt.confirm(window, "Cartola FC", msg);
+	    if (!result) return;
+
+	    list.removeItemAt(list.selectedIndex);
+	    this.util.pref().setCharPref("currentUser", "");
+	    this.updateButtonState();
+	    this.showMessage("Usuário Removido");
+	  },
+  
+  promptUserDialog: function(user, msg) {
 
 	    var prompt = Components.classes["@mozilla.org/embedcomp/prompt-service;1"].getService(Components.interfaces.nsIPromptService);
 	    while (1) {
@@ -42,27 +71,27 @@ const CartolaPreference = {
 	    return true;
   },
   
-  buildUserList: function() {
-	    this.accounts = this.util.getPassword();
+  onSelectAccount: function() {
 	    var list = this.util.$("accounts");
-	    while (list.firstChild) list.removeChild(menu.firstChild);
+	    try {
+	      var username = list.selectedItem.value;
+	    }
+	    catch (e) {
+	      return;
+	    }
+	    if (username == null) return;
 
-	    if (this.accounts == null) {
-	        this.updateButtonState();
-	        return;
-	      }
-	    
+	    this.updateButtonState();
+	  },
+  
+  buildUserList: function() {
+		var list = this.util.$("accounts");
+		while (list.firstChild) list.removeChild(list.firstChild);
 	    var currentUser = this.util.pref().getCharPref("currentUser");
-	    if (!this.accounts[currentUser]) {
-	      currentUser = "";
-	    }
-
-	    for (var user in this.accounts) {
-	      if (this.accounts.hasOwnProperty(user)) {
-	        var item = list.appendItem(user, user);
-	      }
-	    }
 	    
+	    if(currentUser!="")
+	    	list.appendItem(currentUser);
+		  
 	    this.updateButtonState();
 	  },
   

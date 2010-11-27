@@ -22,27 +22,11 @@ Utils.prototype = {
     return this._pref;
   },
   
-  getPassword: function(path) {
-
-	    if (!path) path = "";
-
-	    var result = [];
-	    var n = 0;
-
-	    try {
-	      var hostname = "chrome://" + this._exname;
-	      var logins = this._login.findLogins({}, hostname, "", null);
-	      n = logins.length;
-
-	      for (var i = 0; i < logins.length; ++i) {
-	        result[logins[i].username] = logins[i].password;
-	      }
+  log: function(msg) {
+	    if (!this._console) {
+	      this._console = Components.classes["@mozilla.org/consoleservice;1"].getService(Components.interfaces.nsIConsoleService);
 	    }
-	    catch(e) {
-	      this.log("Can't retrieve password by Login Manager:" + e.message);
-	      return null;
-	    }
-
-	    return (n > 0) ? result : null;
+	    this._console.logStringMessage(msg);
+	    dump(msg+"\n");
 	  }
 };
