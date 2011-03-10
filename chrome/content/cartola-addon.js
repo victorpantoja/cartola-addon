@@ -1,7 +1,7 @@
 
 function CartolaNotifier() {
 	//this._util = new naanExUtils("cartola-addon");
-	this._window = this.$("twitternotifier-main-window");
+	this._window = this.$("cartolanotifier-main-window");
 }
 
 CartolaNotifier.prototype = {

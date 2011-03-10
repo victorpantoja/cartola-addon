@@ -22,7 +22,7 @@
 	<statusbar id="status-bar">
 		<statusbarpanel id="cartola-notifier-statusbar-button"
 		label="Cartola FC"
-		context="twitternotifier-main-menupopup"
+		context="cartolanotifier-main-menupopup"
 		ondblclick="cartolaNotifier.openURL('http://cartolafc.globo.com')"
 		onclick="return cartolaNotifier.onClickStatusbarIcon(event)"
 		tooltip="cartolanotifier-tooltip">
@@ -30,26 +30,26 @@
 		</statusbarpanel>
 	</statusbar>
 	
-    <hbox id="twitternotifier-popup-container">
-      <panel id="twitternotifier-main-window" noautofocus="true" noautohide="true"/>
-      <panel id="twitternotifier-popup" noautofocus="true" noautohide="true"/>
+    <hbox id="cartolanotifier-popup-container">
+      <panel id="cartolanotifier-main-window" noautofocus="true" noautohide="true"/>
+      <panel id="cartolanotifier-popup" noautofocus="true" noautohide="true"/>
     </hbox>
     
-    <popupset id="twitternotifier-popupset">
-		<menu id="twitternotifier-menuitem-account" label="&cartolanotifier.accounts;">
-			<menupopup id="twitternotifier-accounts" sortDirection="ascending" onpopupshowing="cartolaNotifier.onAccountMenuShowing(this)"/>
+    <popupset id="cartolanotifier-popupset">
+		<menu id="cartolanotifier-menuitem-account" label="&cartolanotifier.accounts;">
+			<menupopup id="cartolanotifier-accounts" sortDirection="ascending" onpopupshowing="cartolaNotifier.onAccountMenuShowing(this)"/>
 		</menu>
 		<menuseparator/>
     </popupset>
     
-    <!--<popupset id="twitternotifier-popupset">
-      <menupopup id="twitternotifier-main-menupopup">
-	<menu id="twitternotifier-menuitem-account" label="&cartolanotifier.accounts;">
-	  <menupopup id="twitternotifier-accounts" sortDirection="ascending" onpopupshowing="gTwitterNotifier.onAccountMenuShowing(this)"/>
+    <!--<popupset id="cartolanotifier-popupset">
+      <menupopup id="cartolanotifier-main-menupopup">
+	<menu id="cartolanotifier-menuitem-account" label="&cartolanotifier.accounts;">
+	  <menupopup id="cartolanotifier-accounts" sortDirection="ascending" onpopupshowing="gcartolanotifier.onAccountMenuShowing(this)"/>
 	</menu>
 	<menuseparator/>
-	<menuitem id="twitternotifier-menuitem-preference" label="&cartolanotifier.preference;" oncommand="gTwitterNotifier.onPreference(event)" />
-	<menuitem id="twitternotifier-menuitem-logout" label="&cartolanotifier.logout;" oncommand="gTwitterNotifier.onLogout(this)" />
+	<menuitem id="cartolanotifier-menuitem-preference" label="&cartolanotifier.preference;" oncommand="gcartolanotifier.onPreference(event)" />
+	<menuitem id="cartolanotifier-menuitem-logout" label="&cartolanotifier.logout;" oncommand="gcartolanotifier.onLogout(this)" />
       </menupopup>
     </popupset>-->
 
