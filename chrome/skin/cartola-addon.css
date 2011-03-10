@@ -1,5 +1,5 @@
 #cartola-notifier-statusbar-button {
-  list-style-image: url("chrome://cartolaextension/skin/icon_cartola.gif");
+  list-style-image: url("chrome://cartolaextension/skin/icon_cartola_offline.gif");
   display: -moz-box;
   padding-left: 3px;
   padding-right: 3px;

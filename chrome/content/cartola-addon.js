@@ -32,13 +32,23 @@ CartolaNotifier.prototype = {
 		var JSON = this.Cc["@mozilla.org/dom/json;1"].createInstance(this.Ci.nsIJSON);
 		var data = JSON.decode(req.responseText);
 	
+		this.updateStatus(true);
 		this.updateTooltipAtualizacao();
 		this.updateTooltipMercado(data);
 	},
 	
 	onError: function(){
-		//TODO
-		alert('API Indisponível!');
+		this.updateStatus(false);
+	},
+	
+	updateStatus: function(status){
+		
+		if(status){
+			this.$("cartola-notifier-statusbar-button").style.listStyleImage = 'url("chrome://cartolaextension/skin/icon_cartola.gif")';
+		}
+		else{
+			this.$("cartola-notifier-statusbar-button").style.listStyleImage = 'url("chrome://cartolaextension/skin/icon_cartola_offline.gif")';
+		}
 	},
 	
 	updateTooltipAtualizacao: function() {
