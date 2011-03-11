@@ -28,29 +28,32 @@
 		tooltip="cartolanotifier-tooltip">
 		<image id="icon_cartola" />
 		</statusbarpanel>
-	</statusbar>
+		
+	    <hbox id="cartolanotifier-popup-container">
+	      <panel id="cartolanotifier-main-window" noautofocus="true" noautohide="true"/>
+	      <panel id="cartolanotifier-popup" noautofocus="true" noautohide="true"/>
+	    </hbox>
 	
-    <hbox id="cartolanotifier-popup-container">
-      <panel id="cartolanotifier-main-window" noautofocus="true" noautohide="true"/>
-      <panel id="cartolanotifier-popup" noautofocus="true" noautohide="true"/>
-    </hbox>
-    
-    <popupset id="cartolanotifier-popupset">
-		<menu id="cartolanotifier-menuitem-account" label="&cartolanotifier.accounts;">
-			<menupopup id="cartolanotifier-accounts" sortDirection="ascending" onpopupshowing="cartolaNotifier.onAccountMenuShowing(this)"/>
-		</menu>
-		<menuseparator/>
-    </popupset>
-    
-    <!--<popupset id="cartolanotifier-popupset">
-      <menupopup id="cartolanotifier-main-menupopup">
-	<menu id="cartolanotifier-menuitem-account" label="&cartolanotifier.accounts;">
-	  <menupopup id="cartolanotifier-accounts" sortDirection="ascending" onpopupshowing="gcartolanotifier.onAccountMenuShowing(this)"/>
-	</menu>
-	<menuseparator/>
-	<menuitem id="cartolanotifier-menuitem-preference" label="&cartolanotifier.preference;" oncommand="gcartolanotifier.onPreference(event)" />
-	<menuitem id="cartolanotifier-menuitem-logout" label="&cartolanotifier.logout;" oncommand="gcartolanotifier.onLogout(this)" />
-      </menupopup>
-    </popupset>-->
+		<popupset id="cartolanotifier-popupset">
+			<menupopup id="cartolanotifier-main-menupopup">
+				<menuitem id="cartolanotifier-menuitem-togglepopup" label="&cartolanotifier.showcountdown;"
+					oncommand="cartolaNotifier.onToggleCountDown(event)" type="checkbox"
+					checked="true" />
+				<menuitem id="cartolanotifier-menuitem-update" label="&cartolanotifier.update;"
+					oncommand="cartolaNotifier.updateMercado()" />
+				<menuseparator />
+				<menu id="cartolanotifier-menuitem-account" label="&cartolanotifier.accounts;">
+					<menupopup id="cartolanotifier-accounts" sortDirection="ascending"
+						onpopupshowing="cartolaNotifier.onAccountMenuShowing(this)" />
+				</menu>
+				<menuseparator />
+				<menuitem id="cartolanotifier-menuitem-preference" label="&cartolanotifier.preference;"
+					oncommand="cartolaNotifier.onPreference(event)" />
+				<menuitem id="cartolanotifier-menuitem-logout" label="&cartolanotifier.logout;"
+					oncommand="cartolaNotifier.onLogout(this)" />
+			</menupopup>
+		</popupset>
+		
+	</statusbar>
 
 </overlay>

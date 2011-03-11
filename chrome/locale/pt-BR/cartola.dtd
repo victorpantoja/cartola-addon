@@ -1,3 +1,5 @@
 <!ENTITY cartolanotifier.accounts "Alterar conta">
 <!ENTITY cartolanotifier.preference "Preferências">
 <!ENTITY cartolanotifier.logout "Logout">
+<!ENTITY cartolanotifier.update "Atualizar">
+<!ENTITY cartolanotifier.showcountdown "Exibir cronômetro">

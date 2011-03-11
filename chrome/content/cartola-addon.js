@@ -1,6 +1,7 @@
 
 function CartolaNotifier() {
 	//this._util = new naanExUtils("cartola-addon");
+	this._prefWindow = null;
 	this._window = this.$("cartolanotifier-main-window");
 }
 
@@ -111,11 +112,17 @@ CartolaNotifier.prototype = {
 	},
 	
 	onOpenPopup: function() {
+		
+	    alert("onOpenPopup: 0", this._window);
+	    
 	    this._window.windowWidth = "2px";
 	    this._window.windowHeight = "6px";
 	    
+	    alert("onOpenPopup: 1");
+	    
 		this._window.show();
 		
+		alert("onOpenPopup: 2");
 
 	    if (navigator.platform.match("Mac")) {
 	      this._window.input.style.padding = "0px";
@@ -128,9 +135,30 @@ CartolaNotifier.prototype = {
 	      }*/
 	},
 	
-	  closePopup: function() {
+
+	closePopup: function() {
 		this._window.hide();
-	  },
+	},
+	
+	onToggleCountDown: function(event) {
+		alert("onToggleCountDown");
+	},
+	
+	onAccountMenuShowing: function(element) {
+		alert("onAccountMenuShowing");
+	},
+	
+	onPreference: function(e) {
+		/*if (this._prefWindow) {
+			this._prefWindow.focus();
+			return true;
+		}*/
+
+		this._prefWindow = window.openDialog("chrome://cartolaextension/content/preferences.xul", 
+				"_blank",
+		"chrome,resizable=no,dependent=yes");
+		return true;
+	},
 	
 	openURL: function(url) {
 		var tabbrowser = gBrowser;
