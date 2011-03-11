@@ -176,6 +176,10 @@ CartolaNotifier.prototype = {
 		menu.appendChild(item);
 	},
 	
+	removeAllChild: function(obj) {
+		while(obj.firstChild) obj.removeChild(obj.firstChild);
+	},
+	
 	onPreference: function(e) {
 		/*if (this._prefWindow) {
 			this._prefWindow.focus();
