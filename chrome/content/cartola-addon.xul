@@ -2,6 +2,7 @@
 <?xml-stylesheet href="chrome://cartolaextension/skin/cartola-addon.css" type="text/css"?>
 <!DOCTYPE overlay SYSTEM "chrome://cartolaextension/locale/cartola.dtd">
 <overlay id="cartolaextension-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script src="utils.js"/>
   <script src="cartola-addon.js"/>
 
   <stringbundleset id="stringbundleset">
@@ -21,11 +22,11 @@
   
 	<statusbar id="status-bar">
 		<statusbarpanel id="cartola-notifier-statusbar-button"
-		label="Cartola FC"
-		context="cartolanotifier-main-menupopup"
-		ondblclick="cartolaNotifier.openURL('http://cartolafc.globo.com')"
-		onclick="return cartolaNotifier.onClickStatusbarIcon(event)"
-		tooltip="cartolanotifier-tooltip">
+			label="Cartola FC"
+			context="cartolanotifier-main-menupopup"
+			ondblclick="cartolaNotifier.openURL('http://cartolafc.globo.com')"
+			onclick="return cartolaNotifier.onClickStatusbarIcon(event)"
+			tooltip="cartolanotifier-tooltip">
 		<image id="icon_cartola" />
 		</statusbarpanel>
 		
@@ -37,7 +38,7 @@
 		<popupset id="cartolanotifier-popupset">
 			<menupopup id="cartolanotifier-main-menupopup">
 				<menuitem id="cartolanotifier-menuitem-togglepopup" label="&cartolanotifier.showcountdown;"
-					oncommand="cartolaNotifier.onToggleCountDown(event)" type="checkbox"
+					oncommand="cartolaNotifier.onToggleCountDown()" type="checkbox"
 					checked="true" />
 				<menuitem id="cartolanotifier-menuitem-update" label="&cartolanotifier.update;"
 					oncommand="cartolaNotifier.updateMercado()" />
@@ -49,8 +50,6 @@
 				<menuseparator />
 				<menuitem id="cartolanotifier-menuitem-preference" label="&cartolanotifier.preference;"
 					oncommand="cartolaNotifier.onPreference(event)" />
-				<menuitem id="cartolanotifier-menuitem-logout" label="&cartolanotifier.logout;"
-					oncommand="cartolaNotifier.onLogout(this)" />
 			</menupopup>
 		</popupset>
 		

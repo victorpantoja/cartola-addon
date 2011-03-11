@@ -1,6 +1,6 @@
 
 function CartolaNotifier() {
-	//this._util = new naanExUtils("cartola-addon");
+	this._util = new naanExUtils("cartolanotifier");
 	this._prefWindow = null;
 	this._window = this.$("cartolanotifier-main-window");
 }
@@ -106,29 +106,44 @@ CartolaNotifier.prototype = {
 	},
 	
 	onClickStatusbarIcon: function(e) {
-		if (e.button == 0) {
-			this.onOpenPopup();
-		}
+		const URL_API_TIME_ADV = "http://api.cartola.globo.com/time_adv/revil-fc.json";
+
+		var req = new XMLHttpRequest;
+		req.open('POST', URL_API_TIME_ADV, true);
+	
+		var self = this;
+	
+		req.onload  = function() {
+			if (e.button == 0) {
+				self.onOpenPopup(req);
+			}
+		};
+		req.onerror = function() {self.onError()};
+		req.send(null);
 	},
 	
-	onOpenPopup: function() {
+	onOpenPopup: function(req) {
+		var JSON = this.Cc["@mozilla.org/dom/json;1"].createInstance(this.Ci.nsIJSON);
+		var data = JSON.decode(req.responseText);
 		
-	    alert("onOpenPopup: 0", this._window);
+		//alert(data['time']['esquema']);
+		
+	    //alert("onOpenPopup: 0", this._window);
 	    
 	    this._window.windowWidth = "2px";
 	    this._window.windowHeight = "6px";
 	    
-	    alert("onOpenPopup: 1");
+	    //alert("onOpenPopup: 1");
 	    
 		this._window.show();
 		
-		alert("onOpenPopup: 2");
+		//alert("onOpenPopup: 2");
 
 	    if (navigator.platform.match("Mac")) {
 	      this._window.input.style.padding = "0px";
 	    }
 	    
-	    this._window.setActiveTab("oi");
+	    //this._window.setActiveTab("oi");
 		
 	    /*if (this._window.isOpen) {
 	        this.closePopup(true);
@@ -140,12 +155,25 @@ CartolaNotifier.prototype = {
 		this._window.hide();
 	},
 	
-	onToggleCountDown: function(event) {
-		alert("onToggleCountDown");
+	onToggleCountDown: function() {
+		var menu = this.$("cartolanotifier-menuitem-togglepopup");
+		var flag = this._util.pref().getBoolPref("countdown");
+		menu.setAttribute("checked", !flag);
+		this._util.pref().setBoolPref("countdown", !flag);
 	},
 	
-	onAccountMenuShowing: function(element) {
-		alert("onAccountMenuShowing");
+	onAccountMenuShowing: function(menu) {
+
+		var currentUser = this._util.pref().getCharPref("currentUser");
+		
+		this.removeAllChild(menu);
+
+		var item = document.createElement("menuitem");
+		item.setAttribute("label", currentUser);
+		item.setAttribute("type", "radio");
+		item.setAttribute("checked", true);
+		
+		menu.appendChild(item);
 	},
 	
 	onPreference: function(e) {
